@@ -1,0 +1,46 @@
+esp32:
+  board: esp32-p4-evboard
+  variant: esp32p4
+  flash_size: 16MB
+  cpu_frequency: 360MHz
+  framework:
+    type: esp-idf
+    advanced:
+      enable_idf_experimental_features: true
+
+psram:
+  mode: hex
+  speed: 200MHz
+
+esp_ldo:
+  - channel: 3
+    voltage: 2.5V
+
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+
+api:
+
+ota:
+
+
+display:
+  - platform: mipi_dsi
+    id: device_display
+    model: JC4880P443
+    byte_order: little_endian
+    rotation: 90
+
+output:
+  - platform: ledc
+    pin: GPIO23
+    id: backlight_pwm
+    frequency: 1000Hz
+
+light:
+  - platform: monochromatic
+    id: display_backlight
+    name: "${friendly_name} Backlight"
+    output: backlight_pwm
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s

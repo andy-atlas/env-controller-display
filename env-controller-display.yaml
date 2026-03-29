@@ -1,0 +1,22 @@
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+
+substitutions:
+  device_name: env-controller-display
+  friendly_name: Environment Controller Display
+  temp_entity: sensor.air_sensor_temperature
+  humidity_entity: sensor.air_sensor_humidity
+  vpd_entity: sensor.air_sensor_vpd
+  fan_entity: fan.exhaust_fan
+  vpd_target_entity: sensor.veg_tent_active_target_vpd
+  vpd_mode_entity: input_select.veg_tent_vpd_mode
+  
+  
+
+packages:
+  hardware: !include packages/hardware.yaml
+  fonts: !include packages/fonts.yaml
+  entities: !include packages/entities.yaml
+  dashboard: !include pages/dashboard.yaml
+  logic: !include scripts/logic.yaml
