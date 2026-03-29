@@ -1,5 +1,31 @@
-# env-controller-display
+# 🌱 env-controller-display
 
+A clean, ESPHome-powered display for monitoring your grow environment in real time.
+
+View **temperature, humidity, VPD, target VPD, and fan speed** — all without opening Home Assistant.
+
+---
+
+## 🚀 Features
+
+- 📊 Real-time environmental metrics (Temp / RH / VPD)
+- 🎯 Target VPD tracking with status feedback
+- 🌬️ Fan speed display (percentage)
+- 🎛️ VPD mode control (Early / Mid / Late / Custom)
+- ⚡ Powered by ESPHome + LVGL
+- 🔌 Fully integrated with Home Assistant
+
+---
+
+## 📦 Installation
+
+Create a new ESPHome device and use the configuration below.
+
+---
+
+## 🛠 Example Configuration
+
+```yaml
 esphome:
   name: env-controller-display
   friendly_name: Environment Controller Display
@@ -37,9 +63,9 @@ packages:
 
 # 🔥 Only edit this section
 substitutions:
-  temp_entity: sensor.veg_tent_air_sensor_temperature
-  humidity_entity: sensor.veg_tent_air_sensor_humidity
-  vpd_entity: sensor.veg_tent_vpd
-  vpd_target_entity: sensor.veg_tent_active_target_vpd
-  fan_entity: fan.veg_tent_exhaust_fan_fan
-  vpd_mode_entity: input_select.veg_tent_vpd_mode
+  temp_entity: sensor.air_sensor_temperature
+  humidity_entity: sensor.air_sensor_humidity
+  vpd_entity: sensor.tent_vpd
+  vpd_target_entity: sensor.active_target_vpd
+  fan_entity: fan.exhaust_fan_fan
+  vpd_mode_entity: input_select.vpd_mode
