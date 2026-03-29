@@ -1,5 +1,7 @@
 # 🌱 env-controller-display
 
+https://www.instagram.com/p/DWZN_imDmET/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+
 A clean, ESPHome-powered display for monitoring your grow environment in real time.
 
 View **temperature, humidity, VPD, target VPD, and fan speed** — all without opening Home Assistant.
