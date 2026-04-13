@@ -2,26 +2,26 @@
 
 https://www.instagram.com/p/DWZN_imDmET/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
 
-A clean, ESPHome-powered display for monitoring your grow environment in real time.
+A simple ESPHome-powered display for keeping an eye on your grow environment in real time.
 
-View **temperature, humidity, VPD, target VPD, and fan speed** — all without opening Home Assistant.
+Quickly check **temperature, humidity, VPD, target VPD, and fan speed** — no need to open Home Assistant every time.
 
 ---
 
 ## 🚀 Features
 
-- 📊 Real-time environmental metrics (Temp / RH / VPD)
-- 🎯 Target VPD tracking with status feedback
-- 🌬️ Fan speed display (percentage)
-- 🎛️ VPD mode control (Early / Mid / Late / Custom)
-- ⚡ Powered by ESPHome + LVGL
-- 🔌 Fully integrated with Home Assistant
+- 📊 Live environment data (Temp / RH / VPD)
+- 🎯 Target VPD tracking with visual feedback
+- 🌬️ Fan speed monitoring
+- 🎛️ VPD mode display (Early / Mid / Late / Custom)
+- ⚡ Built with ESPHome + LVGL
+- 🔌 Pulls directly from Home Assistant
 
 ---
 
 ## 📦 Installation
 
-Create a new ESPHome device and use the configuration below.
+Spin up a new ESPHome device and drop in the config below.
 
 ---
 
