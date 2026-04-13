@@ -11,12 +11,6 @@ lvgl:
       border_color: 0x2E2E2E
       pad_all: 12
 
-    - id: mode_button_style
-      radius: 12
-      bg_color: 0x2C2C2C
-      border_width: 0
-      pad_all: 6
-
   pages:
     - id: main_page
       widgets:
@@ -25,7 +19,7 @@ lvgl:
             x: 16
             y: 16
             width: 248
-            height: 252
+            height: 448
             styles: card_style
             widgets:
               - label:
@@ -36,10 +30,11 @@ lvgl:
                   text_font: font_title
                   text_color: 0xFFFFFF
                   text: "TEMP"
+
               - label:
                   id: temp_value_label
                   x: 0
-                  y: 92
+                  y: 180
                   width: 224
                   text_align: CENTER
                   text_font: font_value
@@ -51,7 +46,7 @@ lvgl:
             x: 276
             y: 16
             width: 248
-            height: 252
+            height: 448
             styles: card_style
             widgets:
               - label:
@@ -62,10 +57,11 @@ lvgl:
                   text_font: font_title
                   text_color: 0xFFFFFF
                   text: "HUMIDITY"
+
               - label:
                   id: humidity_value_label
                   x: 0
-                  y: 92
+                  y: 180
                   width: 224
                   text_align: CENTER
                   text_font: font_value
@@ -77,7 +73,7 @@ lvgl:
             x: 536
             y: 16
             width: 248
-            height: 252
+            height: 448
             styles: card_style
             widgets:
               - label:
@@ -87,142 +83,24 @@ lvgl:
                   text_align: CENTER
                   text_font: font_title
                   text_color: 0xFFFFFF
-                  text: "VPD / TARGET"
+                  text: "VPD"
+
               - label:
                   id: vpd_value_label
                   x: 0
-                  y: 88
+                  y: 180
                   width: 224
                   text_align: CENTER
-                  text_font: font_medium
+                  text_font: font_value
                   text_color: 0xFFFFFF
-                  text: "--.-- / --.--"
+                  text: "--.--"
+
               - label:
-                  id: vpd_status_label
+                  id: vpd_unit_label
                   x: 0
-                  y: 196
+                  y: 290
                   width: 224
                   text_align: CENTER
                   text_font: font_small
                   text_color: 0x9E9E9E
-                  text: "WAITING"
-
-        - obj:
-            id: mode_card
-            x: 16
-            y: 280
-            width: 378
-            height: 184
-            styles: card_style
-            widgets:
-              - label:
-                  x: 0
-                  y: 0
-                  width: 354
-                  text_font: font_title
-                  text_color: 0xFFFFFF
-                  text: "VPD MODE"
-
-              - label:
-                  id: current_mode_label
-                  x: 0
-                  y: 30
-                  width: 354
-                  text_align: CENTER
-                  text_font: font_medium
-                  text_color: 0xFFFFFF
-                  text: "--"
-
-              - button:
-                  id: btn_early
-                  x: 12
-                  y: 86
-                  width: 171
-                  height: 34
-                  styles: mode_button_style
-                  text: "Early Veg"
-                  on_click:
-                    - homeassistant.action:
-                        action: input_select.select_option
-                        data:
-                          entity_id: ${vpd_mode_entity}
-                          option: "Early Veg"
-
-              - button:
-                  id: btn_mid
-                  x: 195
-                  y: 86
-                  width: 171
-                  height: 34
-                  styles: mode_button_style
-                  text: "Mid Veg"
-                  on_click:
-                    - homeassistant.action:
-                        action: input_select.select_option
-                        data:
-                          entity_id: ${vpd_mode_entity}
-                          option: "Mid Veg"
-
-              - button:
-                  id: btn_late
-                  x: 12
-                  y: 128
-                  width: 171
-                  height: 34
-                  styles: mode_button_style
-                  text: "Late Veg"
-                  on_click:
-                    - homeassistant.action:
-                        action: input_select.select_option
-                        data:
-                          entity_id: ${vpd_mode_entity}
-                          option: "Late Veg"
-
-              - button:
-                  id: btn_custom
-                  x: 195
-                  y: 128
-                  width: 171
-                  height: 34
-                  styles: mode_button_style
-                  text: "Custom"
-                  on_click:
-                    - homeassistant.action:
-                        action: input_select.select_option
-                        data:
-                          entity_id: ${vpd_mode_entity}
-                          option: "Custom"
-
-        - obj:
-            id: fan_card
-            x: 406
-            y: 280
-            width: 378
-            height: 184
-            styles: card_style
-            widgets:
-              - label:
-                  x: 0
-                  y: 0
-                  width: 354
-                  text_font: font_title
-                  text_color: 0xFFFFFF
-                  text: "FAN SPEED"
-              - label:
-                  id: fan_value_label
-                  x: 0
-                  y: 56
-                  width: 354
-                  text_align: CENTER
-                  text_font: font_value
-                  text_color: 0xFFFFFF
-                  text: "--%"
-              - label:
-                  id: fan_sub_label
-                  x: 0
-                  y: 138
-                  width: 354
-                  text_align: CENTER
-                  text_font: font_tiny
-                  text_color: 0xBDBDBD
-                  text: "Controller Output"
+                  text: "kPa"

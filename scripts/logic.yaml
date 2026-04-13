@@ -4,42 +4,6 @@ script:
       - lvgl.label.update:
           id: vpd_value_label
           text: !lambda |-
-            static char buf[32];
-            snprintf(buf, sizeof(buf), "%.2f / %.2f", id(ha_vpd).state, id(ha_vpd_target).state);
+            static char buf[16];
+            snprintf(buf, sizeof(buf), "%.2f", id(ha_vpd).state);
             return buf;
-
-      - lvgl.label.update:
-          id: vpd_status_label
-          text: !lambda |-
-            float diff = fabsf(id(ha_vpd).state - id(ha_vpd_target).state);
-            if (diff <= 0.05f) return "OPTIMAL";
-            if (diff <= 0.12f) return "SLIGHTLY OUT";
-            if (diff <= 0.22f) return "OUT OF RANGE";
-            return "SEVERELY OUT";
-          text_color: !lambda |-
-            float diff = fabsf(id(ha_vpd).state - id(ha_vpd_target).state);
-            if (diff <= 0.05f) return lv_color_hex(0x4CAF50);
-            if (diff <= 0.12f) return lv_color_hex(0xFBC02D);
-            return lv_color_hex(0xE53935);
-
-  - id: update_mode_buttons
-    then:
-      - lvgl.button.update:
-          id: btn_early
-          bg_color: !lambda |-
-            return id(ha_vpd_mode).state == "Early Veg" ? lv_color_hex(0x2E7D32) : lv_color_hex(0x2C2C2C);
-
-      - lvgl.button.update:
-          id: btn_mid
-          bg_color: !lambda |-
-            return id(ha_vpd_mode).state == "Mid Veg" ? lv_color_hex(0x2E7D32) : lv_color_hex(0x2C2C2C);
-
-      - lvgl.button.update:
-          id: btn_late
-          bg_color: !lambda |-
-            return id(ha_vpd_mode).state == "Late Veg" ? lv_color_hex(0x2E7D32) : lv_color_hex(0x2C2C2C);
-
-      - lvgl.button.update:
-          id: btn_custom
-          bg_color: !lambda |-
-            return id(ha_vpd_mode).state == "Custom" ? lv_color_hex(0x2E7D32) : lv_color_hex(0x2C2C2C);
