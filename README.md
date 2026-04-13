@@ -1,27 +1,29 @@
-# 🌱 env-controller-display
+# 🌱 env-controller-display (Minimal)
 
 https://www.instagram.com/p/DWZN_imDmET/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
 
-A simple ESPHome-powered display for keeping an eye on your grow environment in real time.
+A stripped-down ESPHome display for monitoring your grow environment in real time.
 
-Quickly check **temperature, humidity, VPD, target VPD, and fan speed** — no need to open Home Assistant every time.
+This version focuses on the essentials — **temperature, humidity, and VPD** — with a clean, full-screen layout and no extra controls.
+
+No target tracking. No fan display. No modes.  
+Just the data you actually need at a glance.
 
 ---
 
 ## 🚀 Features
 
-- 📊 Live environment data (Temp / RH / VPD)
-- 🎯 Target VPD tracking with visual feedback
-- 🌬️ Fan speed monitoring
-- 🎛️ VPD mode display (Early / Mid / Late / Custom)
+- 📊 Real-time Temp / Humidity / VPD
+- 🖥️ Clean 3-card full-screen layout (800×480)
 - ⚡ Built with ESPHome + LVGL
 - 🔌 Pulls directly from Home Assistant
+- 🧩 Works with any sensor (CHT832X, SHT31, etc.)
 
 ---
 
 ## 📦 Installation
 
-Spin up a new ESPHome device and drop in the config below.
+Create a new ESPHome device and use the configuration below.
 
 ---
 
@@ -61,6 +63,7 @@ wifi:
 packages:
   env_controller_display:
     url: https://github.com/andy-atlas/env-controller-display.git
+    ref: cht832x-minimal
     file: env-controller-display.yaml
 
 # 🔥 Only edit this section
@@ -68,6 +71,3 @@ substitutions:
   temp_entity: sensor.air_sensor_temperature
   humidity_entity: sensor.air_sensor_humidity
   vpd_entity: sensor.tent_vpd
-  vpd_target_entity: sensor.active_target_vpd
-  fan_entity: fan.exhaust_fan_fan
-  vpd_mode_entity: input_select.vpd_mode
