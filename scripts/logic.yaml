@@ -5,5 +5,11 @@ script:
           id: vpd_value_label
           text: !lambda |-
             static char buf[16];
-            snprintf(buf, sizeof(buf), "%.2f", id(ha_vpd).state);
+
+            if (isnan(id(probe_vpd).state)) {
+              snprintf(buf, sizeof(buf), "--.--");
+            } else {
+              snprintf(buf, sizeof(buf), "%.2f", id(probe_vpd).state);
+            }
+
             return buf;

@@ -32,8 +32,4 @@ sensor:
     update_interval: 10s
     on_value:
       then:
-        - lvgl.label.update:
-            id: vpd_value_label
-            text:
-              format: "%.2f"
-              args: ["x"]
+        - script.execute: update_vpd_display
