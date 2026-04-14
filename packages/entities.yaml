@@ -8,6 +8,13 @@ sensor:
       then:
         - lvgl.label.update:
             id: temp_value_label
+            #Fahrenheit
+            text: !lambda |-
+              static char buf[16];
+              float f = (x * 9.0f / 5.0f) + 32.0f;
+              snprintf(buf, sizeof(buf), "%.1f°F", f);
+              return buf;
+            #Celcius
             text:
               format: "%.1f°"
               args: ["x"]
@@ -21,17 +28,9 @@ sensor:
       then:
         - lvgl.label.update:
             id: humidity_value_label
-            #Fahrenheit
-            text: !lambda |-
-              static char buf[16];
-              float f = (x * 9.0f / 5.0f) + 32.0f;
-              snprintf(buf, sizeof(buf), "%.1f°F", f);
-              return buf;
-
-            #Celcius
-            #text:
-              #format: "%.0f%%"
-              #args: ["x"]
+            text:
+              format: "%.0f%%"
+              args: ["x"]
 
   - platform: template
     id: display_vpd
