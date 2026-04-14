@@ -1,7 +1,9 @@
 sensor:
-  - platform: homeassistant
-    id: ha_temp
-    entity_id: ${temp_entity}
+  - platform: template
+    id: display_temp
+    lambda: |-
+      return id(probe_temp).state;
+    update_interval: 10s
     on_value:
       then:
         - lvgl.label.update:
@@ -10,20 +12,28 @@ sensor:
               format: "%.1f°"
               args: ["x"]
 
-  - platform: homeassistant
-    id: ha_humidity
-    entity_id: ${humidity_entity}
+  - platform: template
+    id: display_humidity
+    lambda: |-
+      return id(probe_humidity).state;
+    update_interval: 10s
     on_value:
       then:
         - lvgl.label.update:
             id: humidity_value_label
             text:
-              format: "%.1f%%"
+              format: "%.0f%%"
               args: ["x"]
 
-  - platform: homeassistant
-    id: ha_vpd
-    entity_id: ${vpd_entity}
+  - platform: template
+    id: display_vpd
+    lambda: |-
+      return id(probe_vpd).state;
+    update_interval: 10s
     on_value:
       then:
-        - script.execute: update_vpd_display
+        - lvgl.label.update:
+            id: vpd_value_label
+            text:
+              format: "%.2f"
+              args: ["x"]
