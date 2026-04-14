@@ -15,9 +15,9 @@ sensor:
               snprintf(buf, sizeof(buf), "%.1f°F", f);
               return buf;
             #Celcius
-            text:
-              format: "%.1f°"
-              args: ["x"]
+            #text:
+              #format: "%.1f°"
+              #args: ["x"]
 
   - platform: template
     id: display_humidity
