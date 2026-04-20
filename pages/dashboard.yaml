@@ -1,4 +1,5 @@
 lvgl:
+  rotation: 0
   byte_order: little_endian
   buffer_size: 100%
   disp_bg_color: 0x000000

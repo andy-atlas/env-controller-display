@@ -29,7 +29,6 @@ display:
     id: device_display
     model: JC4880P443
     byte_order: little_endian
-    rotation: 0
 
 output:
   - platform: ledc
