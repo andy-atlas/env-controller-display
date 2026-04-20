@@ -27,7 +27,7 @@ light:
     default_transition_length: 0s
 
 image:
-  - file: assets/atlas_logo.png
+  - file: assets/atlas_logo.jpg
     id: atlas_logo
     resize: 440x252
     type: RGB565
