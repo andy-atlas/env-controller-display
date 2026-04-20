@@ -48,7 +48,6 @@ lvgl:
                   text_align: CENTER
                   styles: card_title_style
                   text: "TIME"
-
               - label:
                   id: time_value_label
                   x: 0
@@ -73,7 +72,6 @@ lvgl:
                   text_align: CENTER
                   styles: card_title_style
                   text: "TEMPERATURE"
-
               - label:
                   id: temp_value_label
                   x: 0
@@ -98,7 +96,6 @@ lvgl:
                   text_align: CENTER
                   styles: card_title_style
                   text: "HUMIDITY"
-
               - label:
                   id: humidity_value_label
                   x: 0
@@ -123,7 +120,6 @@ lvgl:
                   text_align: CENTER
                   styles: card_title_style
                   text: "VPD"
-
               - label:
                   id: vpd_value_label
                   x: 0
@@ -132,7 +128,6 @@ lvgl:
                   text_align: CENTER
                   styles: card_value_style
                   text: "--.--"
-
               - label:
                   x: 0
                   y: 90

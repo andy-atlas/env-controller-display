@@ -34,3 +34,6 @@ online_image:
     format: jpeg
     type: RGB565
     resize: 440x252
+    update_interval: 6h
+    on_download_finished:
+      - component.update: main_display
