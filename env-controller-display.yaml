@@ -5,7 +5,6 @@ esphome:
 substitutions:
   device_name: env-controller-display
   friendly_name: Environment Controller Display
-  display_rotation: "90"
 
 packages:
   hardware: !include packages/hardware.yaml
