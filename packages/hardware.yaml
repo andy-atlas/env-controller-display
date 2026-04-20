@@ -29,5 +29,5 @@ light:
 image:
   - file: "assets/atlas_logo.jpg"
     id: atlas_logo
-    resize: 420x240
+    resize: 228x228
     type: RGB565

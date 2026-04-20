@@ -38,12 +38,12 @@ lvgl:
             x: 6
             y: 10
             width: 468
-            height: 100
+            height: 128
             styles: card_style
             widgets:
               - label:
                   x: 0
-                  y: 8
+                  y: 12
                   width: 448
                   text_align: CENTER
                   styles: card_title_style
@@ -52,7 +52,7 @@ lvgl:
               - label:
                   id: time_value_label
                   x: 0
-                  y: 36
+                  y: 50
                   width: 448
                   text_align: CENTER
                   styles: card_value_style
@@ -61,7 +61,7 @@ lvgl:
         - obj:
             id: temp_card
             x: 6
-            y: 122
+            y: 146
             width: 468
             height: 128
             styles: card_style
@@ -86,7 +86,7 @@ lvgl:
         - obj:
             id: humidity_card
             x: 6
-            y: 262
+            y: 282
             width: 468
             height: 128
             styles: card_style
@@ -111,7 +111,7 @@ lvgl:
         - obj:
             id: vpd_card
             x: 6
-            y: 402
+            y: 418
             width: 468
             height: 128
             styles: card_style
@@ -144,13 +144,13 @@ lvgl:
         - obj:
             id: art_card
             x: 6
-            y: 544
+            y: 554
             width: 468
-            height: 248
+            height: 238
             styles: card_style
             widgets:
               - image:
                   id: atlas_logo_widget
-                  x: 24
-                  y: 4
+                  x: 120
+                  y: 5
                   src: atlas_logo
