@@ -26,10 +26,8 @@ light:
     restore_mode: ALWAYS_ON
     default_transition_length: 0s
 
-http_request:
-
 image:
   - file: "assets/atlas_logo.jpg"
     id: atlas_logo
-    resize: 440x252
+    resize: 420x240
     type: RGB565
