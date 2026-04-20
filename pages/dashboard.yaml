@@ -1,107 +1,164 @@
 lvgl:
+  displays:
+    - main_display
   rotation: ${display_rotation}
   byte_order: little_endian
   buffer_size: 100%
-  disp_bg_color: 0x000000
+  disp_bg_color: 0x050814
 
   style_definitions:
     - id: card_style
-      radius: 18
-      bg_color: 0x141414
-      border_width: 1
-      border_color: 0x2E2E2E
-      pad_all: 12
+      radius: 22
+      bg_color: 0x0B1220
+      bg_opa: COVER
+      border_width: 2
+      border_color: 0x6E7E99
+      shadow_width: 18
+      shadow_color: 0x1CC7FF
+      shadow_opa: 35%
+      pad_all: 14
+
+    - id: card_title_style
+      text_color: 0xDCE7F7
+      text_font: font_title
+
+    - id: card_value_style
+      text_color: 0xF4FAFF
+      text_font: font_value
+
+    - id: card_subtle_style
+      text_color: 0x8DA7C7
+      text_font: font_small
 
   pages:
     - id: main_page
       widgets:
         - obj:
-            id: temp_card
-            x: 16
-            y: 16
-            width: 248
-            height: 448
+            id: time_card
+            x: 12
+            y: 12
+            width: 456
+            height: 92
             styles: card_style
             widgets:
               - label:
                   x: 0
-                  y: 0
-                  width: 224
+                  y: 4
+                  width: 428
                   text_align: CENTER
-                  text_font: font_title
-                  text_color: 0xFFFFFF
-                  text: "TEMP"
+                  styles: card_title_style
+                  text: "TIME"
+
+              - label:
+                  id: time_value_label
+                  x: 0
+                  y: 36
+                  width: 428
+                  text_align: CENTER
+                  styles: card_value_style
+                  text: "--:--"
+
+        - obj:
+            id: temp_card
+            x: 12
+            y: 118
+            width: 456
+            height: 120
+            styles: card_style
+            widgets:
+              - label:
+                  x: 0
+                  y: 4
+                  width: 428
+                  text_align: CENTER
+                  styles: card_title_style
+                  text: "TEMPERATURE"
 
               - label:
                   id: temp_value_label
                   x: 0
-                  y: 180
-                  width: 224
+                  y: 44
+                  width: 428
                   text_align: CENTER
-                  text_font: font_value
-                  text_color: 0xFFFFFF
-                  text: "--.-°"
+                  styles: card_value_style
+                  text: "--.-°F"
 
         - obj:
             id: humidity_card
-            x: 276
-            y: 16
-            width: 248
-            height: 448
+            x: 12
+            y: 252
+            width: 456
+            height: 120
             styles: card_style
             widgets:
               - label:
                   x: 0
-                  y: 0
-                  width: 224
+                  y: 4
+                  width: 428
                   text_align: CENTER
-                  text_font: font_title
-                  text_color: 0xFFFFFF
+                  styles: card_title_style
                   text: "HUMIDITY"
 
               - label:
                   id: humidity_value_label
                   x: 0
-                  y: 180
-                  width: 224
+                  y: 44
+                  width: 428
                   text_align: CENTER
-                  text_font: font_value
-                  text_color: 0xFFFFFF
-                  text: "--.-%"
+                  styles: card_value_style
+                  text: "--%"
 
         - obj:
             id: vpd_card
-            x: 536
-            y: 16
-            width: 248
-            height: 448
+            x: 12
+            y: 386
+            width: 456
+            height: 120
             styles: card_style
             widgets:
               - label:
                   x: 0
-                  y: 0
-                  width: 224
+                  y: 4
+                  width: 428
                   text_align: CENTER
-                  text_font: font_title
-                  text_color: 0xFFFFFF
+                  styles: card_title_style
                   text: "VPD"
 
               - label:
                   id: vpd_value_label
                   x: 0
-                  y: 180
-                  width: 224
+                  y: 44
+                  width: 428
                   text_align: CENTER
-                  text_font: font_value
-                  text_color: 0xFFFFFF
+                  styles: card_value_style
                   text: "--.--"
 
               - label:
-                  id: vpd_unit_label
                   x: 0
-                  y: 290
-                  width: 224
+                  y: 84
+                  width: 428
                   text_align: CENTER
-                  text_font: font_small
-                  text_color: 0x9E9E9E
+                  styles: card_subtle_style
                   text: "kPa"
+
+        - obj:
+            id: ambient_glow
+            x: 0
+            y: 0
+            width: 480
+            height: 520
+            bg_opa: TRANSP
+            border_opa: TRANSP
+
+        - obj:
+            id: art_card
+            x: 12
+            y: 520
+            width: 456
+            height: 268
+            styles: card_style
+            widgets:
+              - image:
+                  x: 8
+                  y: 8
+                  src: atlas_logo
