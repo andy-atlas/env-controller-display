@@ -1,15 +1,27 @@
 script:
+  - id: update_time_display
+    then:
+      - lvgl.label.update:
+          id: time_value_label
+          text: !lambda |-
+            static char buf[16];
+            auto now = id(sntp_time).now();
+            if (!now.is_valid()) {
+              snprintf(buf, sizeof(buf), "--:--");
+            } else {
+              snprintf(buf, sizeof(buf), "%02d:%02d", now.hour, now.minute);
+            }
+            return buf;
+
   - id: update_vpd_display
     then:
       - lvgl.label.update:
           id: vpd_value_label
           text: !lambda |-
             static char buf[16];
-
             if (isnan(id(probe_vpd).state)) {
               snprintf(buf, sizeof(buf), "--.--");
             } else {
               snprintf(buf, sizeof(buf), "%.2f", id(probe_vpd).state);
             }
-
             return buf;
