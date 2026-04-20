@@ -28,12 +28,8 @@ light:
 
 http_request:
 
-online_image:
-  - url: "https://raw.githubusercontent.com/andy-atlas/env-controller-display/cht832x-minimal/assets/atlas_logo.jpg"
+image:
+  - file: "assets/atlas_logo.jpg"
     id: atlas_logo
-    format: jpeg
-    type: RGB565
     resize: 440x252
-    update_interval: 6h
-    on_download_finished:
-      - component.update: main_display
+    type: RGB565
